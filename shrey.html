@@ -1,0 +1,217 @@
+<title>Happy Birthday Shreyy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Layout: one narrow phone-first column. Greeting, three real steps, then the code with its Copy button. */
+:root {
+  --bg: #1a0e14;
+  --surface: #2a1620;
+  --line: #4a2837;
+  --ink: #ffb6c1;
+  --ink-soft: #ffd6e0;
+  --muted: #c79aa8;
+  --shadow: #7a2b44;
+  --font-display: "Dancing Script", "Brush Script MT", cursive;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-code: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-block: 32px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+main { max-width: 34rem; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 11vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--ink-soft);
+  text-shadow: 3px 3px 0 var(--shadow);
+  text-wrap: balance;
+}
+.rule { height: 2px; background: var(--ink); width: 100%; margin-top: 14px; }
+.lead { margin: 0; color: var(--muted); }
+ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+li { display: grid; grid-template-columns: 2rem 1fr; gap: 12px; align-items: start; min-width: 0; }
+.n {
+  width: 2rem; height: 2rem; border-radius: 50%;
+  border: 1.5px solid var(--ink); color: var(--ink);
+  display: grid; place-items: center; font-weight: 700; font-size: 0.9rem;
+}
+li p { margin: 0; padding-top: 3px; }
+li strong { color: var(--ink); font-weight: 700; }
+.actions { display: flex; flex-direction: column; gap: 12px; }
+.btn {
+  appearance: none; border: 0; cursor: pointer; text-decoration: none; text-align: center;
+  font: 700 1.05rem var(--font-body);
+  padding: 16px 18px; border-radius: 12px;
+  display: block; width: 100%;
+}
+.btn:focus-visible { outline: 3px solid var(--ink-soft); outline-offset: 3px; }
+.copy { background: var(--ink); color: #3a1020; }
+.copy:active { transform: translateY(1px); }
+.copy.done { background: var(--ink-soft); }
+.open { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.status { margin: 0; min-height: 1.5em; color: var(--ink-soft); font-size: 0.95rem; }
+.codewrap { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.codewrap label { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+textarea {
+  width: 100%; height: 16rem; resize: vertical;
+  background: var(--surface); color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 10px;
+  font: 400 0.78rem/1.55 var(--font-code);
+  padding: 14px; white-space: pre; overflow: auto;
+}
+textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.foot { color: var(--muted); font-size: 0.9rem; margin: 0; }
+@media (prefers-reduced-motion: reduce) { .copy:active { transform: none; } }
+</style>
+
+<main>
+  <header>
+    <h1>Happy Birthday, Shreyy</h1>
+    <div class="rule"></div>
+  </header>
+
+  <p class="lead">Something I made for you, line by line. Three taps and it draws itself.</p>
+
+  <ol>
+    <li><span class="n">1</span><p><strong>Copy the code.</strong> Tap the pink button below.</p></li>
+    <li><span class="n">2</span><p><strong>Open the turtle page.</strong> It opens in a new tab.</p></li>
+    <li><span class="n">3</span><p><strong>Paste and run.</strong> Clear what is already in the box, paste, then press Run.</p></li>
+  </ol>
+
+  <div class="actions">
+    <button class="btn copy" id="copy-btn" type="button">Copy the code</button>
+    <a class="btn open" id="open-link" href="https://pythonsandbox.com/turtle" target="_blank" rel="noopener">Open the turtle page</a>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="codewrap">
+    <label for="code">The code</label>
+    <textarea id="code" readonly spellcheck="false" autocapitalize="off" autocorrect="off">
+# Made for youhhh, with loveeeee
+import math
+import turtle
+
+bg = "black"
+ink = "#ffb6c1"
+msg = "I love you"
+FONT = ("Arial", 8, "bold")
+rings = range(11, 17)
+points_perRing = 120
+
+def heart_point(k, size, points=points_perRing):
+    """Return the (x, y) position of point k on a heart of the given size."""
+    theta = 2 * math.pi * k / points
+    px = 16 * math.sin(theta) ** 3
+    py = (13 * math.cos(theta)
+          - 5 * math.cos(2 * theta)
+          - 2 * math.cos(3 * theta)
+          - math.cos(4 * theta))
+    return px * size, py * size
+
+def write_banner():
+    banner = turtle.Turtle()
+    banner.hideturtle()
+    banner.penup()
+    banner.speed(0)
+
+    text = "Happy Birthday my Shreyy &lt;3"
+    style = ("Brush Script MT", 35, "italic")
+#thiss partt was fully trial and error my loveee took the most time
+#but everything was worth it hihi
+    banner.color("#7a2b44")
+    banner.goto(3, 227)
+    banner.write(text, align="center", font=style)
+    banner.color("#ffd6e0")
+    banner.goto(0, 230)
+    banner.write(text, align="center", font=style)
+    banner.goto(-320, 215)
+    banner.color(ink)
+    banner.pensize(2)
+    banner.pendown()
+    banner.goto(320, 215)
+    banner.penup()
+
+
+def make_writer():
+    pen = turtle.Turtle()
+    pen.speed(7)
+    pen.hideturtle()
+    pen.penup()
+    pen.color(ink)
+    return pen
+
+
+def main():
+    canvas = turtle.Screen()
+    canvas.bgcolor(bg)
+    write_banner()
+    writer = make_writer()
+
+    for size in rings:
+        for k in range(points_perRing):
+            px, py = heart_point(k, size)
+            writer.goto(px, py)
+            writer.write(msg, align="center", font=FONT)
+
+    turtle.done()
+if __name__ == "__main__":
+    main()
+</textarea>
+  </div>
+
+  <p class="foot">If Copy does nothing, tap inside the box, choose Select all, then Copy.</p>
+</main>
+
+<script>
+(function () {
+  var box = document.getElementById("code");
+  var btn = document.getElementById("copy-btn");
+  var status = document.getElementById("status");
+  var timer;
+
+  function done(msg) {
+    status.textContent = msg;
+    btn.classList.add("done");
+    btn.textContent = "Copied";
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      btn.classList.remove("done");
+      btn.textContent = "Copy the code";
+    }, 2500);
+  }
+
+  function fallback() {
+    var text = box.value;
+    box.focus();
+    box.select();
+    box.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    if (ok) done("Copied. Now open the turtle page and paste.");
+    else status.textContent = "The code is selected. Tap Copy in the menu that pops up.";
+  }
+
+  btn.addEventListener("click", function () {
+    var text = box.value;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        done("Copied. Now open the turtle page and paste.");
+      }, fallback);
+    } else {
+      fallback();
+    }
+  });
+})();
+</script>
