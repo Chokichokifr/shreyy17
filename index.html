@@ -111,7 +111,6 @@ rings = range(11, 17)
 points_perRing = 120
 
 def heart_point(k, size, points=points_perRing):
-    """Return the (x, y) position of point k on a heart of the given size."""
     theta = 2 * math.pi * k / points
     px = 16 * math.sin(theta) ** 3
     py = (13 * math.cos(theta)
@@ -126,7 +125,7 @@ def write_banner():
     banner.penup()
     banner.speed(0)
 
-    text = "Happy Birthday my Shreyy &lt;3"
+    text = "Happy Birthday&lt;3"
     style = ("Brush Script MT", 35, "italic")
 #thiss partt was fully trial and error my loveee took the most time
 #but everything was worth it hihi
@@ -136,11 +135,11 @@ def write_banner():
     banner.color("#ffd6e0")
     banner.goto(0, 230)
     banner.write(text, align="center", font=style)
-    banner.goto(-320, 215)
+    banner.goto(-140, 215)
     banner.color(ink)
     banner.pensize(2)
     banner.pendown()
-    banner.goto(320, 215)
+    banner.goto(140, 215)
     banner.penup()
 
 
